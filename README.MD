@@ -28,33 +28,32 @@ Before starting run `npm install` to install all the required packages.
 
 ## Task 2 - Create a new Product Schema. 
 
-We have to create a new Product Schema with the following items: 
+We have to create a new Product Schema with the following fields: 
+
+- name - String 
+- price - Number
+- category - String
+- instock - Boolean (true or false)
 
 
+## Task 3 - Add new product  (CREATE)
 
-##### starter code
-```javascript
-const express = require('express');
-const app = express();
+  1. Create a new `post` endpoint `/create` in `productsRoutes`. 
 
-app.use(express.urlencoded({extended:true}));
-app.use(express.json());
+  2. Use the `create` or  `save` method to create a new product in the database. 
 
-app.listen(3000, () => {
-   console.log("The server is listening") 
-});
-```
+Example using save
 
-## Task 3 - Initialize an array of carobjects 
-
-  1. Initialize an array of carobjects, you can choose how you form your objects. 
  ```javascript
-  const cars = [ 
-    { id:1, name:'Volvo' }, 
-    { id:2, name:'BMW' },
-    { id:3, name:'Audi' }];
+const tea = new Tea({ name: 'Sencha', type: 'GREENTEA' });
+await tea.save();
    ```
 
+Example using create
+
+ ```javascript
+const tea = await Tea.create({ name: 'Sencha', type: 'GREENTEA' });
+   ```
 
 ## Task 4 - Add middleware for a GET request to '/api/cars'
 Write some middleware that will respond to the path `/api/cars`. This middleware should return a json `response` with the list of cars and a status code 200. 

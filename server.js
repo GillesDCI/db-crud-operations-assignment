@@ -1,13 +1,13 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const magicspellRoutes = require('./Routes/productsRoutes');
+const productsRoutes = require('./Routes/productsRoutes');
 
 const app = express();
 
 dotenv.config();
 
-app.use('/magic-spell', productsRoutes);
+app.use('/api/products', productsRoutes);
 
 
 mongoose
@@ -17,4 +17,4 @@ mongoose
     .then(() => console.log('We are connected to the database'))
     .catch(() => console.log('We are not connected to the database'));
 
-app.listen(3001, () => console.log('Server is ready for requests.'));
+app.listen(4000, () => console.log('Server is ready for requests.'));
