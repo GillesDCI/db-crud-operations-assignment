@@ -74,7 +74,7 @@ const teas = await Tea.find(); // all the teas
 Example using findById
 
  ```javascript
-const teas = await Tea.findById('dsf5464sdsms5d');
+const tea = await Tea.findById('dsf5464sdsms5d');
    ```
 
 ## Task 6 - Get products by category (READ)
@@ -88,25 +88,51 @@ Example using find
 const teas = await Tea.find({ type: 'GREENTEA' });
    ```
 
-## Task 7 - Update category of product (UPDATE)
+## Task 7 - Update category of product by id (UPDATE)
   1. Create a new `put` endpoint `/update/category/:id` in `productsRoutes`. 
 
   2. Use the `findByIdAndUpdate` method to update the product 
 
-Example using find 
+Example using findByIdAndUpdate 
 
  ```javascript
-const cats = await Cat.findByIdAndUpdate('dfsdfqsfdsfqsd', { type: 'BLACKTEA' });
+const tea = await Tea.findByIdAndUpdate('dfsdfqsfdsfqsd', { type: 'BLACKTEA' });
    ```
 
-## Task 8 - Add middleware for a DELETE request to 'api/cars/delete/:id'
-Write some middleware that will respond to the path `api/cars/update`. This middleware should delete the car by id and should return a json `response` with the list of cars (excluding the car that was deleted) and a status code 200.
+## Task 8 - Delete one product by name  (DELETE)
+  1. Create a new `delete` endpoint `/delete/:name` in `productsRoutes`. 
 
-- If a faulty id paramater was supplied it should return status code 400 (Bad Request). 
-- If an id was supplied but it can't be found in the array return status code 404.
+  2. Use the `findOneAndDelete` method to delete the product 
+
+Example using findOneAndDelete 
+
+ ```javascript
+const teas = await Tea.findOneAndDelete({ name: 'Sencha' });
+   ```
+
+## Task 9 - Delete one product by name  (DELETE)
+  1. Create a new `delete` endpoint `/delete/:name` in `productsRoutes`. 
+
+  2. Use the `findOneAndDelete` method to delete the product 
+
+Example using findOneAndDelete 
+
+ ```javascript
+const teas = await Tea.findOneAndDelete({ name: 'Sencha' });
+   ```
 
 
+## Task 10 - Delete all products by category  (DELETE)
+  1. Create a new `delete` endpoint `/delete/category/:category` in `productsRoutes`. 
 
+  2. Use the `deleteMany` method to delete the product 
+
+Example using deleteMany 
+
+ ```javascript
+const resultDelete = await Tea.deleteMany({ type: 'GREENTEA' });
+
+   ```
 
 
 
