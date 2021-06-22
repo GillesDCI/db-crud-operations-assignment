@@ -32,7 +32,7 @@ We have to create a new Product Schema with the following fields:
 
 - name - String 
 - price - Number
-- category - String
+- category - String (example "INDOORS", "OUTDOORS")
 - instock - Boolean (true or false)
 
 
@@ -55,32 +55,49 @@ Example using create
 const tea = await Tea.create({ name: 'Sencha', type: 'GREENTEA' });
    ```
 
-## Task 4 - Add middleware for a GET request to '/api/cars'
-Write some middleware that will respond to the path `/api/cars`. This middleware should return a json `response` with the list of cars and a status code 200. 
+## Task 4 - Get list of products  (READ)
+  1. Create a new `get` endpoint `/list` in `productsRoutes`. 
 
+  2. Use the `find` method to get return a list of all products in the database. 
 
-## Task 5 - Add middleware for a GET request to 'api/cars/:id'
-Write some middleware that will respond to the path `/cars/:id`. This middleware should return a json `response` with a car by parameter id and a status code 200. 
-- If a faulty id parameter was supplied it should return status code 400 (Bad Request). 
-- If an id was supplied but it can't be found in the array return status code 404.
+Example using find
 
-## Task 6 - Add middleware for a POST request to 'api/cars/add'
-Write some middleware that will respond to a post request to the path `api/cars/add`. 
-A car object should be added to the array of cars. This middleware should return a json `response` with the added car object and status code 200.  The body of the request can look like this and should contain the necessary fields to create the new car object: 
- ```json
-{
-    "id":"4",
-    "name":"Renault"
-}
- ```
+ ```javascript
+const teas = await Tea.find(); // all the teas
+   ```
 
+## Task 5 - Get product by id (READ)
+  1. Create a new `get` endpoint `/product/:id` in `productsRoutes`. 
 
+  2. Use the `findById` method to return the product with the id specified in the parameters. 
 
-## Task 7 - Add middleware for a PUT request to 'api/cars/update/:id'
-Write some middleware that will respond to the path `api/cars/update/:id`. This middleware should update an existing car and return a json `response` with the list of cars (including the newly added one) and a status code 200. 
+Example using findById
 
-- If a faulty id parameter was supplied it should return status code 400 (Bad Request). 
-- If an id was supplied but it can't be found in the array return status code 404.
+ ```javascript
+const teas = await Tea.findById('dsf5464sdsms5d');
+   ```
+
+## Task 6 - Get products by category (READ)
+  1. Create a new `get` endpoint `/product/category/:category` in `productsRoutes`. 
+
+  2. Use the `find` method to return the products with the category specified in the parameters. 
+
+Example using find 
+
+ ```javascript
+const teas = await Tea.find({ type: 'GREENTEA' });
+   ```
+
+## Task 7 - Update category of product (UPDATE)
+  1. Create a new `put` endpoint `/update/category/:id` in `productsRoutes`. 
+
+  2. Use the `findByIdAndUpdate` method to update the product 
+
+Example using find 
+
+ ```javascript
+const cats = await Cat.findByIdAndUpdate('dfsdfqsfdsfqsd', { type: 'BLACKTEA' });
+   ```
 
 ## Task 8 - Add middleware for a DELETE request to 'api/cars/delete/:id'
 Write some middleware that will respond to the path `api/cars/update`. This middleware should delete the car by id and should return a json `response` with the list of cars (excluding the car that was deleted) and a status code 200.
