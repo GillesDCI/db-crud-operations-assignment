@@ -67,7 +67,7 @@ const teas = await Tea.find(); // all the teas
    ```
 
 ## Task 5 - Get product by id (READ)
-  1. Create a new `get` endpoint `/product/:id` in `productsRoutes`. 
+  1. Create a new `get` endpoint `/:id` in `productsRoutes`. 
 
   2. Use the `findById` method to return the product with the id specified in the parameters. 
 
@@ -78,7 +78,7 @@ const tea = await Tea.findById('dsf5464sdsms5d');
    ```
 
 ## Task 6 - Get products by category (READ)
-  1. Create a new `get` endpoint `/product/category/:category` in `productsRoutes`. 
+  1. Create a new `get` endpoint `/category/:category` in `productsRoutes`. 
 
   2. Use the `find` method to return the products with the category specified in the parameters. 
 
