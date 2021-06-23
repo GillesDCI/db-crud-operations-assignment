@@ -99,6 +99,8 @@ Example using findByIdAndUpdate
 const tea = await Tea.findByIdAndUpdate('dfsdfqsfdsfqsd', { type: 'BLACKTEA' });
    ```
 
+
+
 ## Task 8 - Delete one product by name  (DELETE)
   1. Create a new `delete` endpoint `/delete/:name` in `productsRoutes`. 
 
@@ -110,19 +112,8 @@ Example using findOneAndDelete
 const teas = await Tea.findOneAndDelete({ name: 'Sencha' });
    ```
 
-## Task 9 - Delete one product by name  (DELETE)
-  1. Create a new `delete` endpoint `/delete/:name` in `productsRoutes`. 
 
-  2. Use the `findOneAndDelete` method to delete the product 
-
-Example using findOneAndDelete 
-
- ```javascript
-const teas = await Tea.findOneAndDelete({ name: 'Sencha' });
-   ```
-
-
-## Task 10 - Delete all products by category  (DELETE)
+## Task 9 - Delete all products by category  (DELETE)
   1. Create a new `delete` endpoint `/delete/category/:category` in `productsRoutes`. 
 
   2. Use the `deleteMany` method to delete the product 
