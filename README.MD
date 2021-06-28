@@ -7,7 +7,7 @@ In this project we will create our own API of webstore products.
 This project will allow you to practise using:
 
 > - HTTP methods
-> - Database MongoDB CRUDE operations
+> - Database MongoDB CRUD operations
 
 This project assumes you've already had experience with:
 
